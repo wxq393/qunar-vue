@@ -3,7 +3,7 @@
     <div class="title">猜你喜欢</div>
     <ul>
       <li class="item border-bottom" 
-          v-for="item of recommendList" 
+          v-for="item of list" 
           :key="item.id"
       >
         <img class="item-img" :src="item.imgUrl" />
@@ -20,30 +20,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-      id:'0001',
-      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
-      title: '贝壳梦幻世界',
-      desc: '一个梦幻的海洋生物王国'
-    },{
-      id:'0002',
-      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
-      title: '贝壳梦幻世界',
-      desc: '一个梦幻的海洋生物王国'
-    },{
-      id:'0003',
-      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
-      title: '贝壳梦幻世界',
-      desc: '一个梦幻的海洋生物王国'
-    },{
-      id:'0004',
-      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
-      title: '贝壳梦幻世界',
-      desc: '一个梦幻的海洋生物王国'
-    }]
-    }
+  props: {
+    list: Array
   }
 }
     

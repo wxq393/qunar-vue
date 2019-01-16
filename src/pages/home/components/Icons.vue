@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-   <swiper>
+   <swiper :options="swiperOption">
     <swiper-slide 
        v-for="(page,index) of pages" 
        :key="index"
@@ -22,53 +22,20 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    icon: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点门票'
-      },{
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '一日游'
-      },
-      {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '城市必游'
-      },{
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/97/02f5043b51b2102.png',
-        desc: '当地特色'
-      },
-      {
-        id: '0005',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-        desc: '自然风光'
-      },{
-        id: '0006',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-        desc: '游乐场'
-      },{
-        id: '0007',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-        desc: '动植物园'
-      },{
-        id: '0008',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif',
-        desc: '年终大促'
-      },{
-        id: '0009',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif',
-        desc: '年终大促'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item,index) =>{
+      this.icon.forEach((item,index) =>{
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
