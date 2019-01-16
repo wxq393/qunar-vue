@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <div class="title">猜你喜欢</div>
+    <ul>
+      <li class="item border-bottom" 
+          v-for="item of recommendList" 
+          :key="item.id"
+      >
+        <img class="item-img" :src="item.imgUrl" />
+        <div class="item-info">
+          <p class="item-title">{{item.title}}</p>
+          <p class="item-desc">{{item.desc}}</p>
+          <button class="item-button">查看详情</button>
+        </div>       
+      </li>
+    </ul> 
+  </div>  
+</template>
+
+<script>
+export default {
+  name: 'HomeRecommend',
+  data () {
+    return {
+      recommendList: [{
+      id:'0001',
+      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
+      title: '贝壳梦幻世界',
+      desc: '一个梦幻的海洋生物王国'
+    },{
+      id:'0002',
+      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
+      title: '贝壳梦幻世界',
+      desc: '一个梦幻的海洋生物王国'
+    },{
+      id:'0003',
+      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
+      title: '贝壳梦幻世界',
+      desc: '一个梦幻的海洋生物王国'
+    },{
+      id:'0004',
+      imgUrl: 'http://img1.qunarzz.com/sight/p0/1411/f4/78e803cca8a9a2b4bcb07ba584b06653.water.jpg_200x200_5cbbd573.jpg',
+      title: '贝壳梦幻世界',
+      desc: '一个梦幻的海洋生物王国'
+    }]
+    }
+  }
+}
+    
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/mixins.styl'
+  .title
+    margin-top: .2rem
+    line-height: .8rem
+    background: #eee
+    text-indent: .2rem
+  .item
+    overflow: hidden
+    display: flex
+    height: 2rem
+
+    .item-img
+      widtd: 2rem
+      height: 2rem
+      padding: .1rem
+    .item-info
+      flex: 1
+      padding: .1rem
+      min-width: 0
+      .item-title
+        line-height: .66rem
+        font-size: .36rem
+        ellipsis()
+      .item-desc
+        line-height: .7.5rem
+        color: #ccc
+        ellipsis()
+      .item-button
+        line-height: .55rem
+        margin-top: .3rem
+        background: #ff9300
+        padding: 0 .2rem
+        border-radius: .06rem
+        color: #fff       
+</style>
