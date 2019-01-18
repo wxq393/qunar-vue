@@ -2,13 +2,13 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotCities="hotCities"></city-list>
+    <city-list :cities="cities" :hot="hotCities"></city-list>
     <city-alphabet :cities="cities"></city-alphabet>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios         from 'axios'
 import CityHeader    from './components/Header'
 import CitySearch    from './components/Search'
 import CityList      from './components/List'
@@ -37,12 +37,12 @@ export default {
       if(res.ret && res.data) {
         const data = res.data
         this.cities = data.cities
-        this.houCities =data.hotCities
+        this.hotCities =data.hotCities
       }
     }
   },
   mounted () {
-    this.getCityInfo()
+    this.getCityInfo();
   }  
 }   
 </script>
