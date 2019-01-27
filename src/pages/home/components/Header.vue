@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+  <div class="header">
      <div class="header-left">
        <div class="iconfont back-icon">&#xe624;</div>
      </div>
@@ -8,18 +8,20 @@
      </div>
      <router-link to='/city'>
        <div class="header-right">
-         {{this.city}}
+         {{this.doubleCity}}
          <span class="iconfont arrow-icon">&#xe600;</span>
        </div>
      </router-link>
-    </div>
+  </div>
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -48,7 +50,8 @@ export default {
       border-radius: .1rem
       color: #ccc
     .header-right
-      width: 1.24rem
+      min-width: 1.02rem
+      padding: 0 .1rem
       float: right
       text-align: center
       color: #fff
